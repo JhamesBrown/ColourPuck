@@ -7,7 +7,10 @@ var floor8x8grid : Transform;
 var floor : int ;
 var floorActive : boolean = false;
 var floorStartTime : float;
-var collectiblesSpawned = false;
+var collectiblesSpawned : boolean = false;
+var floorColour = new Array (Color.green, Color.red, Color.blue, Color.yellow);
+var currentFloorColour : Color;
+var randomValue : int;
 
 
 var floorInactiveTexture : Transform;
@@ -30,49 +33,64 @@ function Start () {
 	}
 }
 
+
+
 function Update () {
 	timer = Time.time;
 	
-	if (collectiblesSpawned == true) {
-		floorActive = true;
-		nextFloor = false;
-		floorFinished = false;
-		
-	}
-	if (collectiblesLeft <= 0 && floorActive == true) {
-		Instantiate (floorInactiveTexture, Vector3(0, 0, 0), Quaternion.identity);
-		floorInactiveGO = GameObject.FindGameObjectWithTag("FloorInactiveGO");
+	if (player == null) {
 		floorActive = false;
-		floorFinished = true;
-		
 	}
 	
-	if (floorFinished == true){
-		collectiblesSpawned = false;
-		waitingCenterCheck();
-		
-	}
-	
-	if (nextFloor == true){
-		Destroy(floorInactiveGO);
 
+	if (player != null) {
+		if (collectiblesSpawned == true) {
+			floorActive = true;
+			nextFloor = false;
+			floorFinished = false;
+			
+		}
+		if (collectiblesLeft <= 0 && floorActive == true) {
+			Instantiate (floorInactiveTexture, Vector3(0, 0, 0), Quaternion.identity);
+			floorInactiveGO = GameObject.FindGameObjectWithTag("FloorInactiveGO");
+			floorActive = false;
+			floorFinished = true;
+			
+			
+		}
 		
+		if (floorFinished == true){
+			collectiblesSpawned = false;
+			waitingCenterCheck();
+			
+			currentFloorColour = floorColour[Random.Range(Mathf.Round (0),Mathf.Round (3))] ;
+			
+		}
 		
+		if (nextFloor == true){
+			Destroy(floorInactiveGO);
+
+			
+			
+		}
 	}
 }
 
 
 
 function waitingCenterCheck(){
-	if (player.transform.position.x > -1 && player.transform.position.x < 1 && player.transform.position.y > -1 && player.transform.position.y < 1) {
-			waiting = true;
-			yield WaitForSeconds (3);
-			if (player.transform.position.x > -1 && player.transform.position.x < 1 && player.transform.position.y > -1 && player.transform.position.y < 1) {
-				nextFloor = true;
-				
-			}
-			else {
-				waiting = false;
-			}
+	if (player != null) {
+	
+		if (player.transform.position.x > -1 && player.transform.position.x < 1 && player.transform.position.y > -1 && player.transform.position.y < 1) {
+				waiting = true;
+				yield WaitForSeconds (3);
+				if (player.transform.position.x > -1 && player.transform.position.x < 1 && player.transform.position.y > -1 && player.transform.position.y < 1) {
+					nextFloor = true;
+					
+				}
+				else {
+					waiting = false;
+				}
 		}
+	}
 }

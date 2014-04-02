@@ -48,11 +48,13 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\8x8grid_Script.js" />
      <Compile Include="Assets\Scripts\UI_floorDisplay_Script.js" />
+     <Compile Include="Assets\Scripts\UI_health_Script.js" />
      <Compile Include="Assets\Scripts\UI_timer_Script.js" />
      <Compile Include="Assets\Scripts\camera_Script.js" />
      <Compile Include="Assets\Scripts\collectible_Script.js" />
      <Compile Include="Assets\Scripts\collectible_Spawner.js" />
      <Compile Include="Assets\Scripts\gameManager_Script.js" />
+     <Compile Include="Assets\Scripts\gib_Script.js" />
      <Compile Include="Assets\Scripts\player_Script.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

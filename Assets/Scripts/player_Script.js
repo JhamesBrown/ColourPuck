@@ -3,6 +3,10 @@ var Ymomentum : float;
 var Xmomentum : float;
 var momentumValue : float = 0.1;
 var speed : float = 0.1;
+var health : int = 100;
+
+var gib : Transform;
+
 
 var gameManager : gameManager_Script;
 
@@ -38,6 +42,19 @@ function Update () {
 	if (Input.GetAxis("Yyellow")){
 		renderer.material.color = Color.yellow;
 	}
+	
+	if (transform.position.x > 5.5 ||  transform.position.x < -5.5 || transform.position.y > 5.5 ||  transform.position.y < -5.5) {
+		health--;
+	}
+	
+	if (health <= 0 ){
+		Time.timeScale = 1;
+		Destroy(gameObject);
+		for (var i = 0; i < 200; i++){
+			Instantiate(gib, Vector3(transform.position.x, transform.position.y,0), Quaternion.identity);
+		}	
+	}
+	
 }
 
 function OnCollisionEnter2D (col : Collision2D){

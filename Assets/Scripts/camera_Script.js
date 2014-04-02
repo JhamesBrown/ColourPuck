@@ -9,8 +9,14 @@ function Start () {
 }
  
 function Update () {
+
+ 	if (player != null){
     var v3 = player.position;
     v3.z = transform.position.z;
     if (Vector3.Distance(v3, player.position) > deadZone)
        transform.position = Vector3.Lerp(transform.position, v3, speed * Time.deltaTime);
+	}
+	else {
+		transform.position = Vector3(0,0,-10);
+	}
 }
