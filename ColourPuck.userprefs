@@ -1,15 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\gameManager_Script.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Managers\gameManager_Script.js">
     <Files>
-      <File FileName="Assets\Scripts\player_Script.js" Line="54" Column="68" />
-      <File FileName="Assets\Scripts\collectible_Script.js" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\gameManager_Script.js" Line="95" Column="2" />
-      <File FileName="Assets\Scripts\UI_timer_Script.js" Line="20" Column="33" />
-      <File FileName="Assets\Scripts\collectible_Spawner.js" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\UI_health_Script.js" Line="27" Column="40" />
-      <File FileName="Assets\Scripts\camera_Script.js" Line="20" Column="41" />
-      <File FileName="Assets\Scripts\gib_Script.js" Line="4" Column="101" />
+      <File FileName="Assets\Scripts\Managers\gameManager_Script.js" Line="61" Column="17" />
+      <File FileName="Assets\Scripts\player_Script.js" Line="76" Column="6" />
+      <File FileName="Assets\Scripts\UI\UI_health_Script.js" Line="38" Column="3" />
+      <File FileName="Assets\Scripts\winner_Script.js" Line="9" Column="3" />
+      <File FileName="Assets\Scripts\openingScreen_Script.js" Line="8" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
